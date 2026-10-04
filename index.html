@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ResourceHub - Download Study Material & Mods</title>
+    <meta name="description" content="Download high-quality study materials, notes, app mods, and graphics resources instantly.">
+    
+    <!-- Open Graph Metadata -->
+    <meta property="og:title" content="ResourceHub - Free Resources & Study Material">
+    <meta property="og:description" content="Access premium educational resources, PDFs, app mods, and graphics for free.">
+    <meta property="og:type" content="website">
+
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Floating Interactive Buddy -->
+    <div id="interactive-buddy" class="floating-buddy" onclick="app.showTelegramModal()" title="Click me for Telegram links!">
+        <div class="buddy-avatar">🤖</div>
+        <div class="buddy-bubble">Click me to join Telegram! 🚀</div>
+    </div>
+
+    <!-- Navigation Bar -->
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="#" class="brand-logo" onclick="app.navigateTo('home')">
+                <span class="logo-icon">⚡</span>
+                <span id="site-title">ResourceHub</span>
+            </a>
+            <nav class="nav-links">
+                <a href="#" onclick="app.navigateTo('home')">Home</a>
+                <a href="#" onclick="app.navigateTo('categories')">Categories</a>
+                <a href="#" onclick="app.navigateTo('about')">About</a>
+                <a href="#" onclick="app.navigateTo('contact')">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Top Sticky / Banner Ad Placement -->
+    <div class="ad-placement ad-top">
+        <span class="ad-label">Advertisement</span>
+        <!-- ================= AD SLOT 1 (Top Banner 320x50 / 728x90) ================= -->
+        <script>
+          atOptions = {
+            'key' : '0796fee33dfc2504b467d46de6de2a99',
+            'format' : 'iframe',
+            'height' : 90,
+            'width' : 728,
+            'params' : {}
+          };
+        </script>
+        <script src="https://www.highrevenueformat.com/0796fee33dfc2504b467d46de6de2a99/invoke.js"></script>
+        <!-- ========================================================================= -->
+    </div>
+
+    <main class="main-content">
+        <!-- ================= HOME SECTION ================= -->
+        <section id="section-home" class="page-section active">
+            <div class="hero-banner">
+                <h1>Premium Study Notes, App Mods & Resources</h1>
+                <p>Browse, view, and safely download educational and digital assets.</p>
+                
+                <!-- Search & Filters -->
+                <div class="search-filter-box">
+                    <input type="text" id="search-input" placeholder="🔍 Search notes, apps, books..." oninput="app.handleSearch()">
+                    <select id="category-filter" onchange="app.handleFilter()">
+                        <option value="all">All Categories</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Telegram Promotional Banner -->
+            <div class="telegram-promo-grid">
+                <h3>Join Our Official Telegram Channels</h3>
+                <div class="telegram-buttons">
+                    <a href="https://t.me/ultimateapkmods" target="_blank" class="tg-btn tg-1">🔥 @ultimateapkmods</a>
+                    <a href="https://t.me/apstudymods" target="_blank" class="tg-btn tg-2">📚 @apstudymods</a>
+                    <a href="https://t.me/editvaultresources" target="_blank" class="tg-btn tg-3">🎨 @editvaultresources</a>
+                    <a href="https://t.me/physicswallahapk" target="_blank" class="tg-btn tg-4">⚡ @physicswallahapk</a>
+                </div>
+            </div>
+
+            <!-- Mid Page Banner Ad -->
+            <div class="ad-placement">
+                <span class="ad-label">Sponsored Content</span>
+                <!-- ================= AD SLOT 2 (Leaderboard 468x60) ================= -->
+                <script>
+                  atOptions = {
+                    'key' : '1c94fa584a396abc50c7723d0e098ed4',
+                    'format' : 'iframe',
+                    'height' : 60,
+                    'width' : 468,
+                    'params' : {}
+                  };
+                </script>
+                <script src="https://www.highrevenueformat.com/1c94fa584a396abc50c7723d0e098ed4/invoke.js"></script>
+                <!-- ================================================================== -->
+            </div>
+
+            <!-- Resource Cards Grid -->
+            <h2>Available Downloads</h2>
+            <div id="resource-grid" class="resource-grid">
+                <!-- Dynamically populated via script.js -->
+            </div>
+        </section>
+
+        <!-- ================= CATEGORIES SECTION ================= -->
+        <section id="section-categories" class="page-section">
+            <h2>Categories</h2>
+            <div id="category-list-grid" class="category-grid">
+                <!-- Dynamically rendered -->
+            </div>
+        </section>
+
+        <!-- ================= 6-STEP ACCESS FLOW SECTION ================= -->
+        <section id="section-step-flow" class="page-section">
+            <div class="flow-wrapper">
+                
+                <!-- Header Info -->
+                <div class="flow-header">
+                    <h2 id="flow-resource-title">Preparing Your File...</h2>
+                    <div class="progress-container">
+                        <div class="progress-bar-fill" id="progress-bar-fill"></div>
+                    </div>
+                    <p class="step-indicator" id="step-indicator">Step 1 of 6</p>
+                </div>
+
+                <!-- Top Ad Slot Inside Flow -->
+                <div class="ad-placement">
+                    <span class="ad-label">Advertisement</span>
+                    <!-- ================= AD SLOT 3 (Native/Banner 320x50) ================= -->
+                    <script>
+                      atOptions = {
+                        'key' : 'cfd65b36b045c07cef9a05df77feefad',
+                        'format' : 'iframe',
+                        'height' : 50,
+                        'width' : 320,
+                        'params' : {}
+                      };
+                    </script>
+                    <script src="https://www.highperformanceformat.com/cfd65b36b045c07cef9a05df77feefad/invoke.js"></script>
+                    <!-- =================================================================== -->
+                </div>
+
+                <!-- Countdown Display Card -->
+                <div class="timer-card">
+                    <p class="timer-status" id="timer-status-text">Please wait while link generates...</p>
+                    <div class="countdown-circle" id="countdown-display">30</div>
+                    <div id="scroll-instruction" class="scroll-instruction hidden">
+                        👇 Scroll down to the bottom of the page to click Continue!
+                    </div>
+                </div>
+
+                <!-- Ad Placement Above Long Content -->
+                <div class="ad-placement">
+                    <span class="ad-label">Advertisement</span>
+                    <!-- ================= AD SLOT 4 (Rectangle 300x250) ================= -->
+                    <script>
+                      atOptions = {
+                        'key' : '7999654a3a35eff45688cff161a625e9',
+                        'format' : 'iframe',
+                        'height' : 250,
+                        'width' : 300,
+                        'params' : {}
+                      };
+                    </script>
+                    <script src="https://www.highrevenueformat.com/7999654a3a35eff45688cff161a625e9/invoke.js"></script>
+                    <!-- ================================================================ -->
+                </div>
+
+                <!-- Extended Article Content to enforce 225cm / 25-scroll depth -->
+                <article class="extended-article-content">
+                    <h3>Comprehensive Overview & Study Material Information</h3>
+                    <p>Educational resources, digital notes, and software applications require strict validation and verification steps to ensure optimal download speeds and secure deliveries. Our portal provides structured access through verification checks, delivering authenticHere is a complete, static HTML, CSS, and JavaScript project tailored for hosting on GitHub Pages. It incorporates a **6-step countdown unlock flow**, **scroll-to-bottom mechanics**, **Google Sheets live dynamic integration**, **Telegram promo widgets**, and designated **ad placement containers**.
+
+---
+
+### File 1: `index.html`
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resource Hub - Free Notes & Apps</title>
+  <meta name="description" content="Download free study notes, apps, and educational resources easily.">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Resource Hub">
+  <meta property="og:description" content="Download free study notes, apps, and educational resources easily.">
+  <meta property="og:type" content="website">
+
+  <link rel="stylesheet" href="style.css">
+  <!-- Lucide Icons -->
+  <script src="[https://unpkg.com/lucide@latest](https://unpkg.com/lucide@latest)"></script>
+</head>
+<body>
+
+  <!-- Top Ad Bar -->
+  <div class="ad-slot ad-top" id="ad-top">
+    <!-- AD SLOT 1: Header / Top Banner -->
+    <script>
+      atOptions = {
+        'key' : '0796fee33dfc2504b467d46de6de2a99',
+        'format' : 'iframe',
+        'height' : 90,
+        'width' : 728,
+        'params' : {}
+      };
+    </script>
+    <script src="[https://www.highrevenueformat.com/0796fee33dfc2504b467d46de6de2a99/invoke.js](https://www.highrevenueformat.com/0796fee33dfc2504b467d46de6de2a99/invoke.js)"></script>
+  </div>
+
+  <!-- Header / Navigation -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="#" class="brand-logo" id="brand-link">
+        <i data-lucide="folder-down"></i>
+        <span id="site-title-text">ResourceHub</span>
+      </a>
+      <nav class="nav-links">
+        <button class="nav-btn active" data-target="home-section">Home</button>
+        <button class="nav-btn" data-target="resources-section">Resources</button>
+        <button class="nav-btn" data-target="telegram-section">Telegram Channels</button>
+        <button class="nav-btn" data-target="about-section">About</button>
+      </nav>
+      <button class="theme-toggle" id="theme-toggle-btn" aria-label="Toggle Theme">
+        <i data-lucide="moon" id="theme-icon"></i>
+      </button>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <!-- SECTION 1: HOME SECTION -->
+    <section id="home-section" class="app-section active">
+      <div class="hero">
+        <h1>Free Educational Resources & Apps</h1>
+        <p>Access notes, study guides, and mod apps with direct and instant access flow.</p>
+        
+        <!-- Search & Filter Controls -->
+        <div class="search-filter-box">
+          <div class="search-input-wrapper">
+            <i data-lucide="search"></i>
+            <input type="text" id="search-input" placeholder="Search resources, notes, apps...">
+          </div>
+          <select id="category-select">
+            <option value="ALL">All Categories</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Telegram Promo Widget (Interactive Mascot Floating Bar) -->
+      <div class="telegram-banner">
+        <div class="mascot-animation">
+          <span class="animated-emoji">🚀</span>
+        </div>
+        <div class="tg-info">
+          <h3>Join Our Telegram Channels for Daily Updates!</h3>
+          <p>Get instant updates for new APKs, notes, and study material directly on Telegram.</p>
+        </div>
+        <div class="tg-chips">
+          <a href="[https://t.me/ultimateapkmods](https://t.me/ultimateapkmods)" target="_blank" class="tg-btn">@ultimateapkmods</a>
+          <a href="[https://t.me/apstudymods](https://t.me/apstudymods)" target="_blank" class="tg-btn">@apstudymods</a>
+          <a href="[https://t.me/editvaultresources](https://t.me/editvaultresources)" target="_blank" class="tg-btn">@editvaultresources</a>
+          <a href="[https://t.me/physicswallahapk](https://t.me/physicswallahapk)" target="_blank" class="tg-btn">@physicswallahapk</a>
+        </div>
+      </div>
+
+      <!-- Ad Slot Below Heading -->
+      <div class="ad-slot" id="ad-home-heading">
+        <!-- AD SLOT 2: Native Banner -->
+        <script async="async" data-cfasync="false" src="[https://pl31639887.profitableratecpmnetwork.com/cc6abcf1f92971c886c3d6d8d0437d6d/invoke.js](https://pl31639887.profitableratecpmnetwork.com/cc6abcf1f92971c886c3d6d8d0437d6d/invoke.js)"></script>
+        <div id="container-cc6abcf1f92971c886c3d6d8d0437d6d"></div>
+      </div>
+
+      <!-- Resource Grid -->
+      <div class="resource-grid" id="resource-grid">
+        <!-- Dynamic Cards Injected via JS -->
+      </div>
+    </section>
+
+    <!-- SECTION 2: ALL RESOURCES -->
+    <section id="resources-section" class="app-section">
+      <h2>All Available Downloads</h2>
+      <div class="resource-grid" id="all-resources-grid"></div>
+    </section>
+
+    <!-- SECTION 3: TELEGRAM CHANNELS -->
+    <section id="telegram-section" class="app-section">
+      <h2>Official Telegram Communities</h2>
+      <p>Join our specialized channels to get direct access to content updates.</p>
+      <div class="telegram-grid">
+        <div class="tg-card">
+          <i data-lucide="send"></i>
+          <h3>Ultimate APK Mods</h3>
+          <p>@ultimateapkmods</p>
+          <a href="[https://t.me/ultimateapkmods](https://t.me/ultimateapkmods)" target="_blank" class="btn-primary">Join Channel</a>
+        </div>
+        <div class="tg-card">
+          <i data-lucide="book-open"></i>
+          <h3>AP Study Mods</h3>
+          <p>@apstudymods</p>
+          <a href="[https://t.me/apstudymods](https://t.me/apstudymods)" target="_blank" class="btn-primary">Join Channel</a>
+        </div>
+        <div class="tg-card">
+          <i data-lucide="layers"></i>
+          <h3>Edit Vault Resources</h3>
+          <p>@editvaultresources</p>
+          <a href="[https://t.me/editvaultresources](https://t.me/editvaultresources)" target="_blank" class="btn-primary">Join Channel</a>
+        </div>
+        <div class="tg-card">
+          <i data-lucide="graduation-cap"></i>
+          <h3>Physics Wallah APK</h3>
+          <p>@physicswallahapk</p>
+          <a href="[https://t.me/physicswallahapk](https://t.me/physicswallahapk)" target="_blank" class="btn-primary">Join Channel</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: ACCESS / STEP UNLOCK FLOW (Long Page) -->
+    <section id="access-section" class="app-section">
+      <div class="step-card">
+        <div class="step-header">
+          <span class="step-badge" id="step-badge">Step 1 of 6</span>
+          <h2 id="current-resource-title">Loading Resource...</h2>
+        </div>
+
+        <div class="progress-bar-container">
+          <div class="progress-bar-fill" id="progress-bar-fill"></div>
+        </div>
+
+        <!-- Ad Slot: Above Countdown -->
+        <div class="ad-slot" id="ad-above-timer">
+          <!-- AD SLOT 3: 468x60 Banner -->
+          <script>
+            atOptions = {
+              'key' : '1c94fa584a396abc50c7723d0e098ed4',
+              'format' : 'iframe',
+              'height' : 60,
+              'width' : 468,
+              'params' : {}
+            };
+          </script>
+          <script src="[https://www.highrevenueformat.com/1c94fa584a396abc50c7723d0e098ed4/invoke.js](https://www.highrevenueformat.com/1c94fa584a396abc50c7723d0e098ed4/invoke.js)"></script>
+        </div>
+
+        <!-- Timer Visual Box -->
+        <div class="timer-box" id="timer-box">
+          <p id="timer-instruction">Please wait for the timer to finish...</p>
+          <div class="countdown-circle">
+            <span id="countdown-display">30</span>
+            <small>sec</small>
+          </div>
+          <p class="scroll-notice" id="scroll-notice">⏳ Waiting for countdown...</p>
+        </div>
+
+        <!-- Ad Slot: Below Countdown -->
+        <div class="ad-slot" id="ad-below-timer">
+          <!-- AD SLOT 4: 300x250 Banner -->
+          <script>
+            atOptions = {
+              'key' : '7999654a3a35eff45688cff161a625e9',
+              'format' : 'iframe',
+              'height' : 250,
+              'width' : 300,
+              'params' : {}
+            };
+          </script>
+          <script src="[https://www.highrevenueformat.com/7999654a3a35eff45688cff161a625e9/invoke.js](https://www.highrevenueformat.com/7999654a3a35eff45688cff161a625e9/invoke.js)"></script>
+        </div>
+
+        <!-- Long Reading Content Blocks to extend page height (approx 225cm scroll height) -->
+        <div class="extended-reading-content">
+          <div class="ad-slot" id="ad-content-1">
+            <script src="[https://pl31639866.profitableratecpmnetwork.com/7f/c4/43/7fc443d6b93e2b490b830552cb57d700.js](https://pl31639866.profitableratecpmnetwork.com/7f/c4/43/7fc443d6b93e2b490b830552cb57d700.js)"></script>
+          </div>
+
+          <article class="reading-block">
+            <h3>Comprehensive Learning & Study Resources Guide</h3>
+            <p>Accessing educational material online requires patience and verified sources. We bring together notes, practice papers, and modified educational tools to assist students and learners globally in reaching their learning goals with maximum efficiency.</p>
+            <p>Make sure to review the key concepts in each module before attempting practice tests. Understanding core principles ensures better retention and higher accuracy during examinations.</p>
+          </article>
+
+          <div class="ad-slot" id="ad-content-2">
+            <script>
+              atOptions = {
+                'key' : '0c17a1d10fe847fc28802f322a670fb9',
+                'format' : 'iframe',
+                'height' : 50,
+                'width' : 320,
+                'params' : {}
+              };
+            </script>
+            <script src="[https://www.highrevenueformat.com/0c17a1d10fe847fc28802f322a670fb9/invoke.js](https://www.highrevenueformat.com/0c17a1d10fe847fc28802f322a670fb9/invoke.js)"></script>
+          </div>
+
+          <article class="reading-block">
+            <h3>Study Strategy & Preparation Best Practices</h3>
+            <p>When reviewing complex topics, break your study sessions into 25-minute intervals followed by short breaks. This technique enhances focus and lowers fatigue. Use high-quality reference notes and cross-verify with official syllabi.</p>
+          </article>
+
+          <div class="ad-slot" id="ad-content-3">
+            <script src="[https://pl31639867.profitableratecpmnetwork.com/e9/cc/6e/e9cc6e6739c14fac9e8ff0f09764f5fb.js](https://pl31639867.profitableratecpmnetwork.com/e9/cc/6e/e9cc6e6739c14fac9e8ff0f09764f5fb.js)"></script>
+          </div>
+
+          <article class="reading-block">
+            <h3>Additional Resource Information & Usage Instructions</h3>
+            <p>Ensure that your device has compatible PDF reader software or compatible tools to open downloaded files cleanly. If downloading application tools, verify system permissions before installation.</p>
+          </article>
+
+          <div class="ad-slot" id="ad-content-4">
+            <script>
+              atOptions = {
+                'key' : 'fa55270959fc04ef3b4349a4dc9e68fc',
+                'format' : 'iframe',
+                'height' : 600,
+                'width' : 160,
+                'params' : {}
+              };
+            </script>
+            <script src="[https://www.highrevenueformat.com/fa55270959fc04ef3b4349a4dc9e68fc/invoke.js](https://www.highrevenueformat.com/fa55270959fc04ef3b4349a4dc9e68fc/invoke.js)"></script>
+          </div>
+
+          <article class="reading-block">
+            <h3>Community Support & Digital Resources</h3>
+            <p>Stay tuned through our official channels to receive prompt notifications whenever new educational tools or revised note modules are updated in our live spreadsheet directory.</p>
+          </article>
+        </div>
+
+        <!-- Continue Action Box at the Very Bottom -->
+        <div class="continue-action-box" id="continue-action-box">
+          <p id="action-prompt-text">Scroll down to the bottom after countdown finishes.</p>
+          <button id="step-continue-btn" class="btn-disabled" disabled>
+            Wait for Timer...
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: FINAL DOWNLOAD PAGE -->
+    <section id="final-section" class="app-section">
+      <div class="final-card">
+        <i data-lucide="check-circle-2" class="success-icon"></i>
+        <h2>Your Resource is Ready!</h2>
+        <div class="final-details">
+          <img id="final-thumb" src="" alt="Thumbnail">
+          <h3 id="final-title">Resource Title</h3>
+          <p id="final-desc">Resource Description</p>
+        </div>
+
+        <!-- Ad Slot Above Final Link -->
+        <div class="ad-slot" id="ad-final">
+          <script>
+            atOptions = {
+              'key' : 'cfd65b36b045c07cef9a05df77feefad',
+              'format' : 'iframe',
+              'height' : 50,
+              'width' : 320,
+              'params' : {}
+            };
+          </script>
+          <script src="[https://www.highperformanceformat.com/cfd65b36b045c07cef9a05df77feefad/invoke.js](https://www.highperformanceformat.com/cfd65b36b045c07cef9a05df77feefad/invoke.js)"></script>
+        </div>
+
+        <a id="download-anchor" href="#" target="_blank" class="btn-download">
+          <i data-lucide="download"></i> Download / Open File
+        </a>
+      </div>
+    </section>
+
+    <!-- SECTION 6: ABOUT & POLICIES -->
+    <section id="about-section" class="app-section">
+      <h2>About Our Platform</h2>
+      <p>We provide a centralized portal for students and tech enthusiasts to freely access study materials, notes, and utility resources easily.</p>
+
+      <h2>Privacy Policy & Terms</h2>
+      <p>All download links provided on this site are hosted on third-party public cloud servers or maintained directly by content providers. We do not host copyrighted files on our server infrastructure.</p>
+    </section>
+  </main>
+
+  <!-- Bottom Global Ad Slot -->
+  <div class="ad-slot ad-bottom" id="ad-bottom">
+    <script>
+      atOptions = {
+        'key' : 'faba2f7541fd81c5380c3ed9bc08d21a',
+        'format' : 'iframe',
+        'height' : 300,
+        'width' : 160,
+        'params' : {}
+      };
+    </script>
+    <script src="[https://www.highrevenueformat.com/faba2f7541fd81c5380c3ed9bc08d21a/invoke.js](https://www.highrevenueformat.com/faba2f7541fd81c5380c3ed9bc08d21a/invoke.js)"></script>
+  </div>
+
+  <footer class="footer">
+    <p>&copy; 2026 Resource Hub. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
